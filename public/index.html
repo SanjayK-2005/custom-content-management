@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div id="loginSection" class="auth-section">
+            <h2>Login to CMS</h2>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="primary-btn">Login</button>
+                <p>Don't have an account? <a href="#" id="showRegister">Register</a></p>
+            </form>
+        </div>
+
+        <!-- Register Form -->
+        <div id="registerSection" class="auth-section hidden">
+            <h2>Register New Account</h2>
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="registerUsername">Username</label>
+                    <input type="text" id="registerUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <button type="submit" class="primary-btn">Register</button>
+                <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+            </form>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="dashboard hidden">
+            <header class="dashboard-header">
+                <h1>CMS Dashboard</h1>
+                <div class="user-info">
+                    <span id="userDisplay"></span>
+                    <button id="logoutBtn" class="secondary-btn">Logout</button>
+                </div>
+            </header>
+
+            <main class="dashboard-main">
+                <div class="dashboard-actions">
+                    <button id="newPostBtn" class="primary-btn">
+                        <i class="fas fa-plus"></i> New Post
+                    </button>
+                </div>
+
+                <div class="posts-list" id="postsList">
+                    <!-- Posts will be dynamically added here -->
+                </div>
+            </main>
+        </div>
+
+        <!-- Post Editor Modal -->
+        <div id="postModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalTitle">Create New Post</h2>
+                    <button id="closeModal" class="close-btn">&times;</button>
+                </div>
+                <form id="postForm">
+                    <div class="form-group">
+                        <label for="postTitle">Title</label>
+                        <input type="text" id="postTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="postContent">Content</label>
+                        <textarea id="postContent" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="postStatus">Status</label>
+                        <select id="postStatus">
+                            <option value="draft">Draft</option>
+                            <option value="published">Published</option>
+                        </select>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="submit" class="primary-btn">Save</button>
+                        <button type="button" class="secondary-btn" id="cancelPost">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add error message container -->
+    <div id="errorMessage" class="error-message hidden"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
